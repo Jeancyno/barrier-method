@@ -117,6 +117,3 @@ python main.py
 ```
 
 
-
-```bash
-python main.py

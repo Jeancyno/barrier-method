@@ -116,33 +116,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
----
 
-## Résultat
-
-Le programme affiche les itérations de Newton et converge vers :
-
-(x, y) → (0, 0)
-
-Exemple :
-
-```
-Solution optimale : [4.06e-05, 6.10e-05]
-```
-
-
-# Méthode des barrières logarithmiques
-
-## Description
-Résolution des programmes linéaires par la méthode des barrières logarithmiques.
-.
-
-## Objectif
-- Implémentation des conditions KKT
-- Utilisation de la méthode de Newton
-- Calcul manuel des matrices
-
-## Exécution
 
 ```bash
 python main.py

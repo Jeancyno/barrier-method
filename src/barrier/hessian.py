@@ -1,30 +1,20 @@
-import numpy as np
-from src.problem.constraints import g_contraintes
-
-def calculer_hessienne(X, mu):
-    """
-    Hessienne de la fonction barrière
-    """
-    g = g_contraintes(X)
-
-    if np.any(g <= 0):
-        raise ValueError("Point hors domaine")
-
-    # Gradients des contraintes
-    grad_g = [
-        np.array([-2, -1]),  # g1
-        np.array([-1, -1]),  # g2
-        np.array([1, 0]),    # g3
-        np.array([0, 1])     # g4
-    ]
-
-    H = np.zeros((2, 2))
+def hessian_barriere(x, mu, hess_f, g, grad_g, hess_g):
+    n = len(x)
+    H = hess_f(x)
 
     for i in range(len(g)):
-        gi = g[i]
-        grad = grad_g[i].reshape(2, 1)
+        gi = g[i](x)
 
-        # Produit matriciel
-        H += (grad @ grad.T) / (gi**2)
+        if gi <= 0:
+            raise ValueError("Contrainte violée")
 
-    return mu * H
+        grad_gi = grad_g[i](x)
+        hess_gi = hess_g[i](x)
+
+        for j in range(n):
+            for k in range(n):
+                term1 = (grad_gi[j] * grad_gi[k]) / (gi * gi)
+                term2 = hess_gi[j][k] / gi
+                H[j][k] += mu * (term1 - term2)
+
+    return H

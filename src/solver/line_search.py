@@ -1,17 +1,14 @@
-import numpy as np
-from src.problem.constraints import g_contraintes
-
-def recherche_lineaire(X, deltaX, alpha=1.0, beta=0.5):
-    """
-    Trouve un pas alpha pour rester dans le domaine
-    """
+def line_search(x, delta_x, g, alpha=1.0, beta=0.5):
     while True:
-        X_new = X + alpha * deltaX
-        g = g_contraintes(X_new)
+        x_new = [x[i] + alpha * delta_x[i] for i in range(len(x))]
 
-        if np.all(g > 0):
-            break
+        faisable = True
+        for gi in g:
+            if gi(x_new) <= 0:
+                faisable = False
+                break
+
+        if faisable:
+            return alpha
 
         alpha *= beta
-
-    return alpha

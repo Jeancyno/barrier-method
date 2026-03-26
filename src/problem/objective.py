@@ -1,8 +1,9 @@
-import numpy as np
+def grad_f(x):
+    return [3, 2]
 
-def f_objectif(X):
-    """
-    f(x, y) = 3x + 2y
-    """
-    x, y = X
-    return -(3*x + 2*y)
+
+def hess_f(x):
+    return [
+        [0, 0],
+        [0, 0]
+    ]

@@ -1,34 +1,18 @@
-import numpy as np
-from src.barrier.gradient import gradient_barriere
-from src.barrier.hessian import calculer_hessienne
-from src.solver.linear_solver import pivot_gauss
-from src.solver.line_search import recherche_lineaire
+from barrier.gradient import gradient_barriere
+from barrier.hessian import hessian_barriere
+from solver.linear_solver import solve_gauss
+from solver.line_search import line_search
 
-def boucle_newton(X, mu, tol=1e-6, max_iter=50):
-    """
-    Algorithme de Newton pour la fonction barrière
-    """
 
-    for i in range(max_iter):
+def newton_step(x, mu, grad_f, hess_f, g, grad_g, hess_g):
+    grad = gradient_barriere(x, mu, grad_f, g, grad_g)
+    H = hessian_barriere(x, mu, hess_f, g, grad_g, hess_g)
 
-        # 1. Gradient
-        grad = gradient_barriere(X, mu)
+    minus_grad = [-val for val in grad]
+    delta_x = solve_gauss(H, minus_grad)
 
-        # 2. Hessienne
-        H = calculer_hessienne(X, mu)
+    alpha = line_search(x, delta_x, g)
 
-        # 3. Direction de Newton
-        deltaX = -pivot_gauss(H, grad)
+    x_new = [x[i] + alpha * delta_x[i] for i in range(len(x))]
 
-        # 4. Critère d'arrêt
-        if np.linalg.norm(deltaX) < tol:
-            print(f"Convergence atteinte en {i} itérations")
-            break
-
-        # 5. Recherche du pas
-        alpha = recherche_lineaire(X, deltaX)
-
-        # 6. Mise à jour
-        X = X + alpha * deltaX
-
-    return X
+    return x_new

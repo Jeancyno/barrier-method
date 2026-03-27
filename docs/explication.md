@@ -6,7 +6,7 @@ La méthode des barrières logarithmiques est une technique d’optimisation per
 
 Elle appartient à la famille des **méthodes des points intérieurs**.
 
----
+
 
 ## 2. Problème général
 
@@ -20,7 +20,7 @@ Sous contraintes :
 
 gᵢ(x) > 0
 
----
+
 
 ## 3. Transformation par barrière
 
@@ -35,7 +35,7 @@ où :
 
  Si gᵢ(x) → 0 alors ln(gᵢ(x)) → -∞
 
----
+
 
 ## 4. Principe de la méthode
 
@@ -47,7 +47,7 @@ L’algorithme suit les étapes :
 4. Réduire μ
 5. Répéter jusqu’à convergence
 
----
+
 
 ## 5. Méthode de Newton
 
@@ -65,7 +65,7 @@ où :
 * ∇φ(x) : gradient
 * α : pas (line search)
 
----
+
 
 ## 6. Rôle des composants du projet
 
@@ -75,7 +75,7 @@ Calcule la dérivée de la fonction barrière :
 
 ∇φ(x) = ∇f(x) - μ ∑ (∇gᵢ(x) / gᵢ(x))
 
----
+
 
 ###  Hessienne
 
@@ -83,7 +83,7 @@ Calcule la dérivée seconde :
 
 ∇²φ(x) = ∇²f(x) + μ ∑ ( (∇gᵢ ∇gᵢᵀ)/gᵢ² - ∇²gᵢ/gᵢ )
 
----
+
 
 ###  Solveur linéaire
 
@@ -93,7 +93,7 @@ H Δx = -∇φ
 
 via la méthode de Gauss.
 
----
+
 
 ###  Line Search
 
@@ -103,7 +103,7 @@ gᵢ(x + αΔx) > 0
 
  donc on reste dans le domaine faisable
 
----
+
 
 ###  Newton
 
@@ -115,7 +115,7 @@ Calcule la direction de descente et met à jour x.
 
 Réduit progressivement μ pour se rapprocher de la solution réelle.
 
----
+
 
 ## 7. Convergence
 
@@ -125,7 +125,7 @@ Lorsque μ → 0 :
 
  La solution converge vers celle du problème original.
 
----
+
 
 ## 8. Résultat obtenu
 
@@ -137,7 +137,7 @@ Avec une erreur très faible (~10⁻⁵)
 
  Ce qui confirme la validité de l’implémentation.
 
----
+
 
 ## 9. Conclusion
 
@@ -149,4 +149,4 @@ Ce projet montre :
 
  L’algorithme converge correctement vers la solution optimale.
 
----
+

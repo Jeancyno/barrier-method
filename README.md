@@ -60,18 +60,22 @@ L'objectif de l'algorithme est de trouver le point $(x, y)$ qui descend le plus 
 
 ---
 
-##  Méthode utilisée
 
-On transforme le problème en :
+## Résolution par la Méthode de Barrière
 
-φ(x, μ) = f(x) - μ ∑ ln(gᵢ(x))
+Pour traiter ces contraintes, nous définissons la fonction de barrière $B(x, y, \mu)$. Cette fonction "pénalise" le rapprochement des limites de l'hélicoptère en ajoutant un potentiel logarithmique qui tend vers l'infini aux frontières du domaine admissible :
 
+$$B(x, y, \mu) = f(x, y) - \mu \sum_{i=1}^{4} \ln(-g_i(x, y))$$
+
+La fonction de barrière s'écrit :
+
+$$B(x, y, \mu) = -3x - 2y - \mu \ln(10 - 2x - y) - \mu \ln(8 - x - y) - \mu \ln(x) - \mu \ln(y)$$
+
+ 
 Puis on applique :
-
 * Méthode de Newton
 * Réduction progressive de μ
 * Recherche linéaire pour garantir g(x) > 0
-
 ---
 
 ##  Structure du projet

@@ -2,7 +2,8 @@
 
 ##  Description
 
-Ce projet implémente la **méthode des points intérieurs (barrière logarithmique)** pour résoudre un problème d’optimisation sous contraintes.
+Ce projet implémente un solveur d'optimisation non linéaire basé sur **la méthode des points intérieurs (Barrière Logarithmique)**. L'algorithme est conçu pour naviguer au sein d'un domaine de décision contraint afin d'identifier une solution optimale globale.
+
 ---
 
 ## Objectifs du projet

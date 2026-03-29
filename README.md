@@ -32,6 +32,32 @@ Dans une zone instable, une unité de réaction rapide doit être déployée pou
 
 Une escouade apporte 3 points d'efficacité tandis qu'une unité de ravitaillement en apporte 2.
 
+#### Modélisation Mathématique
+
+Pour résoudre ce dilemme, nous traduisons ces paramètres en un programme linéaire. Soit le vecteur de décision $\mathbf{x} = \begin{pmatrix} x \\ y \end{pmatrix}$, où $x$ est le nombre d'escouades et $y$ le nombre d'unités de ravitaillement.
+
+##### Fonction Objectif (Maximisation de l'impact)
+
+Le commandement cherche à maximiser l'efficacité totale $V(x, y)$. L'algorithme de barrière logarithmique étant nativement un processus de minimisation, nous transformons le problème en minimisant l'opposé de la fonction de gain :$$\text{Maximiser } V(x, y) = 3x + 2y \iff \text{Minimiser } f(x, y) = -3x - 2y$$
+
+##### Contraintes de Faisabilité
+
+Le déploiement doit satisfaire les fonctions de contraintes :
+
+$g_i(x, y) \le 0$
+
+- Poids ($g_1$) :
+  - $2x + y \le 10$ 
+  - équivalent à $2x + y - 10 \le 0$
+- Espace ($g_2$) :
+  - $x + y \le 8$
+  - équivalent à $x + y - 8 \le 0$
+- Non-négativité ($g_3, g_4$) :
+  - $x \ge 0$ (donc $-x \le 0$)
+  - $y \ge 0$ (donc $-y \le 0$)
+
+L'objectif de l'algorithme est de trouver le point $(x, y)$ qui descend le plus bas possible dans la "vallée" créée par $f(x, y)$, ce qui correspondra mécaniquement au sommet d'efficacité le plus élevé.
+
 ---
 
 ##  Méthode utilisée

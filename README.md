@@ -3,9 +3,6 @@
 ##  Description
 
 Ce projet implémente la **méthode des points intérieurs (barrière logarithmique)** pour résoudre un problème d’optimisation sous contraintes.
-
-L’implémentation est réalisée **sans aucune bibliothèque externe (comme NumPy)** afin de garantir une compréhension complète des aspects mathématiques et numériques.
-
 ---
 
 ## Objectifs du projet

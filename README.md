@@ -16,19 +16,13 @@ Ce projet implémente un solveur d'optimisation non linéaire basé sur **la mé
 
 ---
 
-## Exemple étudié
+## 🌍 Contexte Opérationnel (Cas d'étude)
 
-Minimiser :
+Bien que cette approche s'applique à diverses formes mathématiques (Programmation Non Linéaire ,Programmation  Linéaire ,….etc), elle est ici illustrée (dans la description, l'implementation est général) par la Programmation Linéaire (PL), où les fonctions $f$ et $g_i$ sont des combinaisons linéaires des variables de décision.
 
-f(x, y) = 3x + 2y
+Pour éprouver la robustesse de l'algorithme, nous modélisons un problème de planification logistique d'urgence près de Goma
 
-Sous contraintes :
-
-* 2x + y ≤ 10
-* x + y ≤ 8
-* x ≥ 0
-* y ≥ 0
-
+<!-- #### Présentation du Problème : Opération Goma -->
 ---
 
 ##  Méthode utilisée

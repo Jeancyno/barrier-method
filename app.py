@@ -12,7 +12,7 @@ def main():
     A = np.array([[2, 1], [1, 1]]) # 2x+y <= 10 et x+y <= 8
     b = np.array([10, 8])
 
-    solution, history = solveur_universel_barriere(c, A, b)
+    solution, history = solveur_universel_barriere(c, A, b) # Appel de la fonction principal de l'algo de barrière
     print(f"Solution optimale : {solution}")
 
     print("  ")

@@ -1,10 +1,7 @@
 
-from .Problem import g_contraintes, f_objectif
+from .problem import g_contraintes, f_objectif
 import numpy as np
 
-
-from .Problem import g_contraintes, f_objectif
-import numpy as np
 
 def calculer_gradient(X, c, A, b, mu):
     """

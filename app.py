@@ -1,6 +1,6 @@
 import numpy as np
-from src.Module_Bibliotheques.Algorith_Principal import solveur_universel_barriere
-from src.Module_Bibliotheques.Visualisation import tracer_resultats_robuste
+from src.module_bibliotheques.algorith_principal import solveur_universel_barriere
+from src.module_bibliotheques.visualisation import tracer_resultats_robuste
 
 
 

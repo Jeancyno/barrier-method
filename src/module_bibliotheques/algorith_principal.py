@@ -1,5 +1,5 @@
-from .Barriere_Logarithmique import calculer_gradient, calculer_hessienne
-from .Solveur_Numeric import pivot_gauss_robuste, recherche_lineaire
+from .barriere_logarithmique import calculer_gradient, calculer_hessienne
+from .solveur_numeric import pivot_gauss_robuste, recherche_lineaire
 import numpy as np
 
 

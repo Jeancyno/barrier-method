@@ -1,4 +1,4 @@
-from .Algorith_Principal import solveur_universel_barriere
+from .algorith_principal import solveur_universel_barriere
 import matplotlib.pyplot as plt
 import numpy as np
 

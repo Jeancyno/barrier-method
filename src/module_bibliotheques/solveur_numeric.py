@@ -1,5 +1,5 @@
 
-from .Problem import g_contraintes, f_objectif
+from .problem import g_contraintes, f_objectif
 import numpy as np
 
 
@@ -27,6 +27,8 @@ def recherche_lineaire(X, delta, A, b):
             return 0.0
             
     return alpha
+
+
 
 def pivot_gauss_robuste(A, b):
     """

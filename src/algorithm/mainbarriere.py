@@ -23,37 +23,37 @@ def main_barrier(x0, mu_init, theta, epsilon,
     - x : solution approximative optimale
     """
 
-    # Copie du point initial (évite de modifier x0 directement)
-    x = x0[:]
+   # Copie du point initial (évite de modifier x0 directement)
+   x = x0[:]
 
-      # Initialisation du paramètre de barrière
-    mu = mu_init
+   # Initialisation du paramètre de barrière
+   mu = mu_init
 
-  # Compteur d'itérations globales
-    iteration = 0
+   # Compteur d'itérations globales
+   iteration = 0
 
    # Boucle principale : on diminue progressivement mu
-    while mu > epsilon:
+   while mu > epsilon:
 
-        # Affichage pour suivre la convergence
-        print(f"\n=== Iteration barriere {iteration} | mu = {mu} ===")
+      # Affichage pour suivre la convergence
+   print(f"\n=== Iteration barriere {iteration} | mu = {mu} ===")
 
-     # Boucle interne : méthode de Newton
-        # Permet d'approcher le minimum de la fonction barrière φ(x, μ)
-        for k in range(20):
+   # Boucle interne : méthode de Newton
+      # Permet d'approcher le minimum de la fonction barrière φ(x, μ)
+   for k in range(20):
 
-            # Calcul d'une itération de Newton :
-            # - direction de descente
-            # - mise à jour de x
-            x = newton_step(x, mu, grad_f, hess_f, g, grad_g, hess_g)
-           
-            # Affichage de l'évolution de la solution
-            print(f"Newton {k} -> x = {x}")
+      # Calcul d'une itération de Newton :
+      # - direction de descente
+      # - mise à jour de x
+      x = newton_step(x, mu, grad_f, hess_f, g, grad_g, hess_g)
+      
+      # Affichage de l'évolution de la solution
+      print(f"Newton {k} -> x = {x}")
 
-        mu *= theta
+   mu *= theta
 
-           # Incrément du compteur
-        iteration += 1
+      # Incrément du compteur
+   iteration += 1
 
- # Retour de la solution finale
-    return x
+   # Retour de la solution finale
+   return x

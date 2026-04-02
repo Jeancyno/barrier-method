@@ -84,16 +84,21 @@ Puis on applique :
 barrier-method/
 │
 ├── src/
-│   ├── algorithm/        # Newton + méthode des barrières
-│   ├── barrier/          # Gradient et Hessienne
-│   ├── solver/           # Solveur Gauss + line search
-│   ├── problem/          # Fonction objectif et contraintes
-│   └── __init__.py
+│   ├── modules/             # Cœur logique de l'application
+│   │   ├── __init__.py      # Rend le dossier importable comme un package
+│   │   ├── problem.py       # Définition de l'objectif (f) et des contraintes (g)
+│   │   ├── solveur_numeric.py # Algorithmes de base (ex: Pivot de Gauss)
+│   │   ├── barriere_log.py  # Calculs du Gradient et de la Hessienne
+│   │   ├── algorith_principal.py # Boucle Newton  et solveur universel
+│   │   └── visualisation.py # Fonctions pour tracer les graphiques et courbes
+│   │
+│   └── test/                # Tests unitaires et validation
+│       └── solveur_test.py  # Scripts de vérification des calculs
 │
-├── app.py               # Point d’entrée
-├── requirements.txt
-├── README.md
-└── .gitignore
+├── app.py                   # Point d'entrée
+├── requirements.txt   
+├── README.md              
+├── .gitignore             
 ```
 
 ---
@@ -145,6 +150,11 @@ pip install -r requirements.txt
 
 ```bash
 python app.py
+```
+## Test des fonctions
+
+```bash
+python3 -m src.test.solveur_test
 ```
 
 

@@ -90,7 +90,7 @@ barrier-method/
 │   ├── problem/          # Fonction objectif et contraintes
 │   └── __init__.py
 │
-├── main.py               # Point d’entrée
+├── app.py               # Point d’entrée
 ├── requirements.txt
 ├── README.md
 └── .gitignore

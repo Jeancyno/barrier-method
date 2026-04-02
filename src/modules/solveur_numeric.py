@@ -30,7 +30,7 @@ def recherche_lineaire(X, delta, A, b):
 
 
 
-def pivot_gauss_robuste(A, b):
+def pivot_gauss(A, b):
     """
     Résout le système linéaire Ax = b par élimination de Gauss avec pivotage.
     

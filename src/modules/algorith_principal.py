@@ -1,5 +1,5 @@
 from .barriere_logarithmique import calculer_gradient, calculer_hessienne
-from .solveur_numeric import pivot_gauss_robuste, recherche_lineaire
+from .solveur_numeric import pivot_gauss, recherche_lineaire
 import numpy as np
 
 
@@ -20,7 +20,7 @@ def boucle_newton(X, c, A, b, mu, tol_interne=1e-6):
             
         H = calculer_hessienne(X, A, b, mu)
         # Résolution du système H * delta = -grad pour trouver la direction de descente
-        delta = pivot_gauss_robuste(H, -grad)
+        delta = pivot_gauss(H, -grad)
         
         # Recherche du pas alpha pour ne pas sortir du domaine réalisable
         alpha = recherche_lineaire(X, delta, A, b)
